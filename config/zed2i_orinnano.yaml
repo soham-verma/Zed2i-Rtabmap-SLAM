@@ -1,0 +1,126 @@
+---
+/**:
+    ros__parameters:
+        use_sim_time: false
+
+        general:
+            camera_timeout_sec:        5
+            camera_max_reconnect:      5
+            camera_flip:               false
+            self_calib:                true
+            grab_resolution:           'HD720'        # HD2K / HD1080 / HD720 / SVGA / VGA
+            grab_frame_rate:           30
+            pub_resolution:            'CUSTOM'       # use CUSTOM + downscale
+            pub_downscale_factor:      2.0            # 1280x720 -> 640x360 on published streams
+            pub_frame_rate:            15.0           # cap publishing to 15 Hz (grab stays 30)
+            gpu_id:                    -1
+            region_of_interest:        '[]'
+            enable_hdr:                false
+
+        video:
+            brightness:                4
+            contrast:                  4
+            hue:                       0
+            saturation:                4
+            sharpness:                 4
+            gamma:                     8
+            auto_exposure_gain:        true
+            auto_whitebalance:         true
+            exposure_time:             16666
+            analog_gain:               8000
+            digital_gain:              128
+            whitebalance_temperature:  42
+            exposure_compensation:     50
+            denoising:                 50
+
+        depth:
+            depth_mode:                'NEURAL_LIGHT' # best quality/cost tradeoff on Orin Nano
+            depth_stabilization:       1
+            openni_depth_mode:         false
+            point_cloud_freq:          10.0           # Hz, independent of grab FPS
+            depth_confidence:          50
+            depth_texture_conf:        100
+            remove_saturated_areas:    true
+            min_depth:                 0.3
+            max_depth:                 10.0
+
+        pos_tracking:
+            pos_tracking_enabled:      true
+            pos_tracking_mode:         'GEN_1'        # GEN_1 = stable / lower cost. AUTO or GEN_3 possible.
+            imu_fusion:                true
+            publish_tf:                true           # odom -> camera
+            publish_map_tf:            false          # RTAB-Map publishes map->odom
+            map_frame:                 'map'
+            odometry_frame:            'odom'
+            area_memory:               false          # disabled: RTAB-Map handles loop closure
+            save_area_memory_on_closing: false
+            reset_odom_with_loop_closure: false
+            depth_min_range:           0.3
+            set_as_static:             false
+            set_gravity_as_origin:     true
+            floor_alignment:           false
+            two_d_mode:                false
+            transform_time_offset:     0.0
+            path_pub_rate:             2.0
+            path_max_count:            -1
+
+        gnss_fusion:
+            gnss_fusion_enabled:       false
+
+        sensors:
+            publish_imu_tf:            true
+            sensors_image_sync:        false
+            sensors_pub_rate:          200.0
+
+        region_of_interest:
+            automatic_roi:             false
+            depth_far_threshold_meters: 2.5
+            image_height_ratio_cutoff: 0.5
+            apply_to_depth:            true
+            apply_to_positional_tracking: true
+            apply_to_point_cloud:      true
+            apply_to_object_detection: true
+            apply_to_body_tracking:    true
+            apply_to_spatial_mapping:  true
+
+        mapping:
+            mapping_enabled:           false           # we use RTAB-Map instead
+            resolution:                0.05
+            max_mapping_range:         10.0
+            fused_pointcloud_freq:     1.0
+            clicked_point_topic:       '/clicked_point'
+            pd_max_distance_threshold: 0.15
+            pd_normal_similarity_threshold: 15.0
+
+        object_detection:
+            od_enabled:                false
+
+        body_tracking:
+            bt_enabled:                false
+
+        streaming:
+            stream_enabled:            false
+
+        advanced:
+            thread_sched_policy:       'SCHED_BATCH'
+            thread_grab_priority:      50
+            thread_sensor_priority:    70
+            thread_pointcloud_priority: 60
+
+        debug:
+            sdk_verbose:               1
+            debug_common:              false
+            debug_sim:                 false
+            debug_video_depth:         false
+            debug_camera_controls:     false
+            debug_point_cloud:         false
+            debug_positional_tracking: false
+            debug_gnss:                false
+            debug_sensors:             false
+            debug_mapping:             false
+            debug_terrain_mapping:     false
+            debug_object_detection:    false
+            debug_body_tracking:       false
+            debug_roi:                 false
+            debug_streaming:           false
+            debug_advanced:            false

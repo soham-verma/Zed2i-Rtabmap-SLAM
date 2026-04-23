@@ -1,0 +1,71 @@
+---
+/**:
+    ros__parameters:
+        # ---- Frames ----
+        frame_id:                    'zed_camera_link'
+        odom_frame_id:               'odom'
+        map_frame_id:                'map'
+        publish_tf:                  true
+
+        # ---- Subscription pattern (use rgbd_sync for efficiency) ----
+        subscribe_depth:             false
+        subscribe_rgb:               false
+        subscribe_rgbd:              true
+        subscribe_scan:              false
+        subscribe_scan_cloud:        false
+        subscribe_stereo:            false
+        subscribe_odom_info:         false
+
+        # ---- Sync ----
+        approx_sync:                 true
+        queue_size:                  10
+        wait_for_transform:          1.0
+        wait_imu_to_init:            true
+        use_sim_time:                false
+
+        # ---- QoS ----
+        qos_image:                   1
+        qos_camera_info:             1
+        qos_odom:                    1
+
+        # ---- Rtabmap core ----
+        Rtabmap/DetectionRate:       '1.0'
+        Rtabmap/TimeThr:             '700'
+        Rtabmap/LoopThr:             '0.11'
+        Mem/IncrementalMemory:       'true'
+        Mem/InitWMWithAllNodes:      'false'
+        Mem/STMSize:                 '30'
+
+        # ---- Feature extraction (lighter for Orin Nano) ----
+        Kp/DetectorStrategy:         '6'
+        Kp/MaxFeatures:              '400'
+        Vis/FeatureType:             '6'
+        Vis/MaxFeatures:             '600'
+        Vis/MinInliers:              '15'
+        Vis/EstimationType:          '1'
+        Vis/CorType:                 '0'
+
+        # ---- Occupancy grid from depth ----
+        RGBD/CreateOccupancyGrid:    'true'
+        Grid/FromDepth:              'true'
+        Grid/CellSize:               '0.05'
+        Grid/RangeMax:               '6.0'
+        Grid/NoiseFilteringRadius:   '0.05'
+        Grid/NoiseFilteringMinNeighbors: '5'
+        Grid/DepthDecimation:        '4'
+        Grid/RayTracing:             'true'
+        Grid/3D:                     'true'
+
+        # ---- RGB-D behaviour ----
+        RGBD/NeighborLinkRefining:   'true'
+        RGBD/ProximityBySpace:       'true'
+        RGBD/AngularUpdate:          '0.05'
+        RGBD/LinearUpdate:           '0.05'
+        RGBD/OptimizeFromGraphEnd:   'false'
+
+        # ---- Published map cloud ----
+        cloud_decimation:            4
+        cloud_max_depth:             6.0
+        cloud_voxel_size:            0.05
+        cloud_noise_filtering_radius: 0.05
+        cloud_noise_filtering_min_neighbors: 5

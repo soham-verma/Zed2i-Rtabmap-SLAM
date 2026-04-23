@@ -1,0 +1,39 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ---- Colcon / ROS 2 build outputs ----
+# This package lives inside a larger ros2_ws; if someone clones it there,
+# these should stay untracked.
+build/
+install/
+log/
+
+# ---- RTAB-Map runtime artifacts ----
+*.db
+*.db-journal
+*.db.back
+
+# ---- Exported maps / point clouds ----
+maps/
+*.pgm
+*.ply
+*.pcd
+*.obj
+*.mtl
+
+# ---- Local overrides ----
+*.local.yaml
+*.local.rviz
