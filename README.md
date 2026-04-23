@@ -220,4 +220,4 @@ rm -f /dev/shm/fastrtps_*
 
 ## License
 
-MIT.
+BSD-2-Clause. See [`LICENSE`](LICENSE). Copyright (c) 2026, Soham Verma.

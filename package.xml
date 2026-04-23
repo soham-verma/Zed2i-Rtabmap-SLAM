@@ -4,7 +4,7 @@
   <version>0.1.0</version>
   <description>ZED 2i + RTAB-Map SLAM bringup tuned for Jetson Orin Nano</description>
   <maintainer email="soham@fliight.com.au">soham</maintainer>
-  <license>MIT</license>
+  <license>BSD-2-Clause</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
