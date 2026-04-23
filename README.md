@@ -220,4 +220,19 @@ rm -f /dev/shm/fastrtps_*
 
 ## License
 
-BSD-2-Clause. See [`LICENSE`](LICENSE). Copyright (c) 2026, Soham Verma.
+GNU Affero General Public License v3.0 only (AGPL-3.0-only). See [`LICENSE`](LICENSE).
+
+Copyright (C) 2026 Soham Verma.
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+details.
+
+**Why AGPL?** Any fork, derivative, or network-deployed service based on this
+code must be released under the same license with full source available to its
+users. If that's incompatible with your use case, do not use this code.
