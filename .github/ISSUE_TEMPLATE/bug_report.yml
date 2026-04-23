@@ -1,0 +1,85 @@
+name: Bug report
+description: Something broken or not behaving as documented
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug! Please fill in as much of the information below as possible — the diagnostics section in particular is what makes triage fast.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A concise description of the bug.
+      placeholder: "When I launch slam.launch.py, RViz2 shows an empty cloud_map even after 30 seconds of motion."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Minimal step-by-step to reproduce.
+      placeholder: |
+        1. `ros2 launch zed_slam_bringup slam.launch.py`
+        2. Wait 10 s for RViz2
+        3. Move camera slowly left
+        4. Observe: /rtabmap/cloud_map stays empty
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      placeholder: "/rtabmap/cloud_map should grow as new keyframes are added."
+
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      description: Jetson model + power mode, or x86 + GPU.
+      placeholder: "Jetson Orin Nano 8GB, JetPack 6.0, 15W power mode"
+    validations:
+      required: true
+
+  - type: input
+    id: ros-distro
+    attributes:
+      label: ROS 2 distribution
+      placeholder: "Humble Hawksbill"
+    validations:
+      required: true
+
+  - type: input
+    id: zed-sdk
+    attributes:
+      label: ZED SDK version
+      placeholder: "5.2.3"
+    validations:
+      required: true
+
+  - type: input
+    id: wrapper-branch
+    attributes:
+      label: zed-ros2-wrapper branch/commit
+      placeholder: "humble-v5.2.x @ abcd1234"
+
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: |
+        Paste the output of `./validate.sh` and any relevant warnings from the launch console.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots, network topology, thermal readings, previous successful commits, etc.

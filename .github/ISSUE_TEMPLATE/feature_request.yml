@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest a new feature or improvement
+title: "[FEAT] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: A clear description of the use case or limitation you've hit.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How you'd like it to work. Config file, launch arg, new node, doc section, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you've thought about, and why they fall short.
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      description: Which part of the project does this affect? (tick all that apply)
+      options:
+        - label: Launch files
+        - label: ZED YAML (`zed2i_orinnano.yaml`)
+        - label: RTAB-Map YAML (`rtabmap_orinnano.yaml`)
+        - label: RViz config
+        - label: Documentation
+        - label: New hardware/platform support
+        - label: Build system / CI
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context

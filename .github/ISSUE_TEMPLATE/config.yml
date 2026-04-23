@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question / discussion
+    url: https://github.com/soham-verma/Zed2i-Rtabmap-SLAM/discussions
+    about: Open-ended questions and design discussions. Please use GitHub Discussions rather than an issue.
+  - name: Upstream - ZED SDK / wrapper
+    url: https://github.com/stereolabs/zed-ros2-wrapper/issues
+    about: Bugs in camera capture, depth, or VIO belong with Stereolabs.
+  - name: Upstream - RTAB-Map
+    url: https://github.com/introlab/rtabmap_ros/issues
+    about: Bugs in the SLAM engine itself belong with IntRoLab.

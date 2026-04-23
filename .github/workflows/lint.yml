@@ -1,0 +1,56 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  yaml-python:
+    name: YAML & Python syntax
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install linters
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Validate YAML files
+        run: |
+          python - <<'PY'
+          import sys, pathlib, yaml
+          bad = 0
+          for p in sorted(pathlib.Path('.').rglob('*.y*ml')):
+              try:
+                  with open(p) as f:
+                      list(yaml.safe_load_all(f))
+                  print(f'OK  {p}')
+              except Exception as e:
+                  print(f'FAIL {p}: {e}')
+                  bad += 1
+          if bad:
+              sys.exit(f'{bad} YAML file(s) failed to parse')
+          PY
+
+      - name: Validate Python launch files
+        run: python -m compileall -q launch
+
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+      - name: Run shellcheck
+        run: shellcheck -x validate.sh

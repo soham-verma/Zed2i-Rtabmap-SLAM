@@ -2,19 +2,33 @@
 <package format="3">
   <name>zed_slam_bringup</name>
   <version>0.1.0</version>
-  <description>ZED 2i + RTAB-Map SLAM bringup tuned for Jetson Orin Nano</description>
-  <maintainer email="soham@fliight.com.au">soham</maintainer>
+  <description>
+    Real-time visual-inertial SLAM bringup for the Stereolabs ZED 2i on the NVIDIA
+    Jetson Orin Nano. Launches the ZED ROS 2 wrapper, rgbd_sync, RTAB-Map, and
+    RViz2 with YAML overrides tuned for the Orin Nano's thermal and compute budget.
+    No custom nodes - configuration only.
+  </description>
+
+  <maintainer email="sohamverma26@gmail.com">Soham Verma</maintainer>
+  <author email="sohamverma26@gmail.com">Soham Verma</author>
+
   <license>AGPL-3.0-only</license>
+
+  <url type="website">https://github.com/soham-verma/Zed2i-Rtabmap-SLAM</url>
+  <url type="repository">https://github.com/soham-verma/Zed2i-Rtabmap-SLAM.git</url>
+  <url type="bugtracker">https://github.com/soham-verma/Zed2i-Rtabmap-SLAM/issues</url>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <exec_depend>zed_wrapper</exec_depend>
   <exec_depend>rtabmap_ros</exec_depend>
   <exec_depend>rtabmap_slam</exec_depend>
+  <exec_depend>rtabmap_sync</exec_depend>
   <exec_depend>rtabmap_viz</exec_depend>
   <exec_depend>rviz2</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>nav2_map_server</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
